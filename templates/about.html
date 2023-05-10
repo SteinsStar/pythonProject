@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/about.css')}}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ </head>
+
+<body>
+
+    <div class="about-section">
+        <h1>About Us</h1>
+        <p>This project aim to develop a machine learning platform</p>
+        <p>   to make predictions on seller type of second-hand mercede benz car.</p>
+    </div>
+
+    <h2 style="text-align:center">Our Team</h2>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <img src="{{url_for('static', filename='images/man.jpg')}}" alt="nani" style="width:100%; height:500px;">
+                <div class="container">
+                    <h2>Junshi Lin</h2>
+                    Hello!<br />
+                    I am a student in Information Technology.
+                    I am keen to be part of an innovative team
+                    where I have the opportunity to grow my
+                    skillset and make a valuable contribution.
+
+                    <p>
+                        u3252615@uni.canberra.edu.au
+                    </p>
+                    <a href="mailto:u3252615@uni.canberra.edu.au" class="button">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

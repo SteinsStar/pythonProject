@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css')}}">
+    <title>Mercedes Benz Seller Type Prediction</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='styles/parallax.min.js')}}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+</head>
+
+<div class="parallax-window" data-parallax="scroll" data-image-src="{{url_for('static', filename='images/car.png')}}">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li style="float:right"><a class="active" href="about">About</a></li>
+    </ul>
+</div>
+<div>
+	<style>
+		.parallax-window {
+			min-height: 500px;
+			background: transparent;
+		}
+	</style>
+</div>
+
+
+<body>
+
+    <div class="explaination">
+        <h2 class="abouth3"> About This Platform</h2>
+        <p class="info">
+            This platform is designed to predict seller type of cars of the mercede benz. The data
+            being used to aid the algorithm has been taken from the Merced Benz Dataset. The intended
+            audience for this application are buyer and seller who wants to know the seller type of car 
+			in certain data. For more information on the data attributes associated with our calculation, <a class="colorthisa"
+                                                                       href="https://www.kaggle.com/datasets/bogdansorin/second-hand-mercedes-benz-registered-2000-2023-ita">Click Here.</a>
+        </p>
+    </div>
+
+
+    <h3>Seller Type Of Mercede Benz Prediction Platform</h3>
+
+
+    <!-- Form -->
+    <div class="complete_form">
+        <form action="/send" method="POST">
+
+            <div class="container1">
+				
+                <label for="modellb">Model: </label>
+                <input type="number" required placeholder="Enter the model.." name="model" />
+				
+
+				<label for="datelb" class="smallInput">First Registration:</label>
+				<input type="date" 	required name="date" />
+				
+                <label for="fuellb">Fuel: </label>
+                <select name="fuel" required>
+                    <option value="diesel">Diesel</option>
+                    <option value="gpl">Gpl</option>
+					<option value="electric">Electric</option>
+                </select>
+				
+                <label for="mileagelb">Mileage: </label>
+                <input type="number" required placeholder="Enter mileage in km.." name="mileage" />
+
+            </div>
+
+            <div class="container2">
+				
+				<label for="swiftlb">Swift: </label>
+                <select name="swift" required>
+                    <option value="automatic">Automatic</option>
+                    <option value="manual">Manual</option>
+                </select>
+
+                <label for="pricelb">Price: </label>
+                <input type="number" required placeholder="Enter the price.." name="price" />
+				
+				<label for="hpb">Horsepower: </label>
+                <input type="number" required placeholder="Enter the horsepower.." name="hp" />
+				
+				<label for="trainmodellb">Training Model: </label>
+                <select name="trainmodel" required>
+					<option value="default">Default</option>
+                    <option value="dt">Decision Tree Classifier</option>
+                    <option value="gnb">Gaussian Naive Bayes</option>
+					<option value="svc">Support Vector Machine Classifier</option>
+					<option value="gbc">Gradient Boosting Classifier</option>
+					<option value="rf">Random Forest Classifier</option>
+                </select>
+			
+            </div>
+			<div class="predictionButton">
+				<br/>
+                <br/>
+                <input type="submit" value="Predict" id="calc_btn" />
+                <br/>
+			</div>
+            <div class="alert">
+                {{ predict }}
+            </div>
+        </form>
+    </div>
+</body>
+
+<footer>
+	<p>© 2023 - University of Canberra ST1_Capstone - Project. All Rights Reserved.</p>
+</footer>
+</html>
